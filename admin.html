@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>RESSINIQ Admin</title>
+  <meta name="robots" content="noindex, nofollow"/>
+  <link rel="stylesheet" href="assets/css/style.css"/>
+</head>
+<body data-admin>
+
+<main class="admin-wrapper">
+
+  <!-- LOGIN -->
+  <section id="loginSection" class="admin-card">
+    <h1>RESSINIQ Admin</h1>
+    <input id="adminPassword" type="password" placeholder="Admin password"/>
+    <button id="loginBtn" class="btn primary full">Login</button>
+  </section>
+
+  <!-- DASHBOARD -->
+  <section id="dashboard" class="admin-dashboard hidden">
+
+    <header class="admin-header">
+      <h2>Product Manager</h2>
+      <div>
+        <button id="adminTheme" class="btn ghost">Toggle Theme</button>
+        <button id="logoutBtn" class="btn ghost">Logout</button>
+      </div>
+    </header>
+
+    <div class="admin-grid">
+
+      <!-- PRODUCT FORM -->
+      <div class="admin-form-card">
+        <h3 id="formTitle">Add Product</h3>
+
+        <form id="productForm">
+          <input type="hidden" id="productId"/>
+
+          <label>Name</label>
+          <input id="productName" required/>
+
+          <label>Category</label>
+          <select id="productCategory"></select>
+
+          <label>Status</label>
+          <select id="productStatus">
+            <option value="live">Live</option>
+            <option value="draft">Draft</option>
+          </select>
+
+          <label>Images (one per line)</label>
+          <textarea id="productImages" placeholder="assets/images/a.jpg"></textarea>
+
+          <label>Description</label>
+          <textarea id="productDescription"></textarea>
+
+          <button class="btn primary full">Save Product</button>
+        </form>
+      </div>
+
+      <!-- PRODUCTS -->
+      <div class="admin-list-card">
+        <h3>Products (Drag to reorder)</h3>
+        <div id="adminProducts" class="sortable"></div>
+        <button onclick="exportJSON()" class="btn ghost full">Export products.json</button>
+      </div>
+
+      <!-- CATEGORIES -->
+      <div class="admin-list-card">
+        <h3>Categories</h3>
+        <input id="newCategory" placeholder="New category"/>
+        <button onclick="addCategory()" class="btn ghost full">Add Category</button>
+        <div id="categoryList"></div>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<script src="assets/js/admin.js"></script>
+</body>
+</html>

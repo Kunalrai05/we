@@ -12,7 +12,9 @@ FILE: products.html
 </head>
 <body>
 
-<button id="themeToggle" aria-label="Toggle dark mode"><span></span></button>
+<button id="themeToggle" aria-label="Toggle dark mode">
+  <span></span>
+</button>
 
 <header class="nav">
   <div class="nav-inner">
@@ -28,19 +30,32 @@ FILE: products.html
 </header>
 
 <main>
+
+  <!-- HERO -->
   <section class="hero small">
     <div class="hero-content">
       <h1>Products</h1>
-      <p class="subtitle">Crafted objects & systems designed to endure.</p>
+      <p class="subtitle">
+        Crafted objects & systems designed to endure.
+      </p>
     </div>
   </section>
 
+  <!-- CATEGORY SHOWCASE -->
+  <section class="category-showcase">
+    <div class="container">
+      <div id="categoryGrid" class="category-grid"></div>
+    </div>
+  </section>
+
+  <!-- FILTERS + PRODUCTS -->
   <section>
     <div class="container">
       <div class="filters" id="categoryFilters"></div>
       <div class="cards products-grid" id="productsGrid"></div>
     </div>
   </section>
+
 </main>
 
 <footer class="footer">

@@ -1,54 +1,22 @@
-<!-- =========================
-FILE: product.html
-========================= -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Product — RESSINIQ</title>
-  <link rel="stylesheet" href="assets/css/style.css"/>
-</head>
-<body>
+<section class="product-page">
+  <div class="container product-layout">
 
-<button id="themeToggle" aria-label="Toggle dark mode"><span></span></button>
+    <div class="product-gallery">
+      <img id="mainImage" />
+      <div id="thumbnails" class="thumbnails"></div>
+    </div>
 
-<header class="nav">
-  <div class="nav-inner">
-    <a href="index.html" class="logo">RESSINIQ</a>
-    <nav>
-      <a href="products.html">Products</a>
-      <a href="contact.html" class="cta">Inquiry</a>
-    </nav>
-  </div>
-</header>
+    <div class="product-info">
+      <h1 id="productName"></h1>
+      <span id="featuredBadge" class="featured hidden">Featured</span>
+      <p class="muted" id="productCategory"></p>
+      <p id="productDescription"></p>
 
-<main>
-  <section class="product-page">
-    <div class="container product-layout">
-      <div class="product-gallery">
-        <img id="productImage" alt="Product image"/>
-      </div>
-
-      <div class="product-info">
-        <h1 id="productName"></h1>
-        <p class="muted" id="productCategory"></p>
-        <p id="productDescription"></p>
-
-        <div class="product-actions">
-          <a href="https://www.instagram.com/ressiniq/" target="_blank" class="btn primary">DM on Instagram</a>
-          <a href="mailto:ressiniq@gmail.com" class="btn ghost">Email Inquiry</a>
-        </div>
+      <div class="product-actions">
+        <a href="https://www.instagram.com/ressiniq/" class="btn primary">DM on Instagram</a>
+        <a href="mailto:ressiniq@gmail.com" class="btn ghost">Email</a>
       </div>
     </div>
-  </section>
-</main>
 
-<footer class="footer">
-  <p>© 2026 RESSINIQ. All rights reserved.</p>
-</footer>
-
-<script src="assets/js/main.js"></script>
-<script src="assets/js/product.js"></script>
-</body>
-</html>
+  </div>
+</section>
