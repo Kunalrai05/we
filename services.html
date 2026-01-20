@@ -1,76 +1,110 @@
-<!-- =========================
-FILE: services.html
-========================= -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Services offered by RESSINIQ."/>
   <title>Services — RESSINIQ</title>
-  <link rel="stylesheet" href="assets/css/style.css" />
+  <meta name="description" content="Capabilities and systems engineered by RESSINIQ."/>
+  <link rel="stylesheet" href="assets/css/style.css"/>
 </head>
 <body>
 
-<button id="themeToggle" aria-label="Toggle dark mode"><span></span></button>
+<button id="themeToggle"><span></span></button>
 
 <header class="nav">
   <div class="nav-inner">
     <a href="index.html" class="logo">RESSINIQ</a>
-    <nav>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
       <a href="about.html">About</a>
       <a href="products.html">Products</a>
       <a href="services.html">Services</a>
       <a href="founder.html">Founder</a>
-      <a href="contact.html" class="cta">Contact</a>
+      <a href="contact.html" class="pill">Contact</a>
     </nav>
+    <a href="cart.html" class="cart-link">🛒 <span id="cartCount" class="cart-count hidden">0</span></a>
   </div>
 </header>
 
-<main>
-  <section class="hero small">
-    <div class="hero-content">
-      <h1>Services</h1>
-      <p class="subtitle">Systems built for durability and scale.</p>
-    </div>
+<main class="services-system">
+
+  <!-- INTRO -->
+  <section class="services-intro reveal">
+    <span class="system-label">CAPABILITIES</span>
+    <h1>We don’t offer services.<br>We engineer systems.</h1>
+    <p class="subtitle">
+      Each engagement is treated as a long-term build, not a short-term task.
+    </p>
   </section>
 
-  <section>
-    <div class="container">
-      <div class="cards">
-        <div class="card">
-          <h3>Web Development</h3>
-          <p>
-            High-performance websites with clean architecture,
-            SEO-first structure, and long-term maintainability.
-          </p>
-        </div>
+  <!-- CAPABILITY PANELS -->
+  <section class="services-panels">
 
-        <div class="card">
-          <h3>App Development</h3>
-          <p>
-            Purpose-built applications designed around usability,
-            reliability, and clarity.
-          </p>
-        </div>
+    <!-- PHYSICAL -->
+    <article class="service-panel depth-1 reveal">
+      <span class="panel-index">01</span>
+      <h2>Physical Craft</h2>
+      <p class="service-desc">
+        Custom-built physical products designed for longevity, function,
+        and aesthetic restraint.
+      </p>
 
-        <div class="card">
-          <h3>Custom Solutions</h3>
-          <p>
-            Tailored digital or physical systems aligned to specific
-            operational needs.
-          </p>
-        </div>
+      <div class="blueprint">
+        <div><strong>Input</strong><span>Requirement & context</span></div>
+        <div><strong>Process</strong><span>Material + design iteration</span></div>
+        <div><strong>Output</strong><span>Purpose-built physical system</span></div>
       </div>
-    </div>
+    </article>
+
+    <!-- DIGITAL -->
+    <article class="service-panel depth-2 reveal">
+      <span class="panel-index">02</span>
+      <h2>Digital Systems</h2>
+      <p class="service-desc">
+        Websites, applications, and internal tools built for performance,
+        clarity, and future scale.
+      </p>
+
+      <div class="blueprint">
+        <div><strong>Input</strong><span>Problem definition</span></div>
+        <div><strong>Process</strong><span>System-first engineering</span></div>
+        <div><strong>Output</strong><span>Reliable digital product</span></div>
+      </div>
+    </article>
+
+    <!-- CUSTOM -->
+    <article class="service-panel depth-3 reveal">
+      <span class="panel-index">03</span>
+      <h2>Custom Engineering</h2>
+      <p class="service-desc">
+        One-off builds combining physical and digital thinking
+        to solve unique problems.
+      </p>
+
+      <div class="blueprint">
+        <div><strong>Input</strong><span>Undefined challenge</span></div>
+        <div><strong>Process</strong><span>Exploration & prototyping</span></div>
+        <div><strong>Output</strong><span>Tailored solution</span></div>
+      </div>
+    </article>
+
   </section>
+
+  <!-- FILTER STATEMENT -->
+  <section class="services-filter reveal">
+    <p>
+      RESSINIQ is not designed for rapid, low-cost mass production.
+      We work with individuals and teams who value clarity,
+      durability, and long-term thinking.
+    </p>
+  </section>
+
 </main>
 
 <footer class="footer">
-  <p>© 2026 RESSINIQ. All rights reserved.</p>
+  <p>© 2026 RESSINIQ</p>
 </footer>
 
 <script src="assets/js/main.js"></script>
 </body>
 </html>
-

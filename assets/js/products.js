@@ -15,7 +15,7 @@ fetch("assets/data/products.json")
     let activeCategory = "all";
 
     /* =========================
-    CATEGORY → IMAGE MAP (STRICT)
+    CATEGORY → IMAGE MAP
     ========================= */
     const CATEGORY_IMAGES = {
       resin: "assets/images/category-resin.jpg",
@@ -28,19 +28,15 @@ fetch("assets/data/products.json")
     NORMALIZE CATEGORIES
     ========================= */
     const categories = (data.categories || []).map(cat => {
-      if (typeof cat === "string") {
-        const id = cat.toLowerCase();
-        return {
-          id,
-          name: cat,
-          image: CATEGORY_IMAGES[id]
-        };
-      }
+      const id =
+        typeof cat === "string"
+          ? cat.toLowerCase()
+          : String(cat.id).toLowerCase();
 
       return {
-        id: cat.id,
-        name: cat.name,
-        image: CATEGORY_IMAGES[cat.id]
+        id,
+        name: typeof cat === "string" ? cat : cat.name,
+        image: CATEGORY_IMAGES[id]
       };
     });
 
@@ -49,7 +45,6 @@ fetch("assets/data/products.json")
     ========================= */
     function renderCategoryShowcase() {
       if (!categoryGrid) return;
-
       categoryGrid.innerHTML = "";
 
       categories.forEach(cat => {
@@ -61,12 +56,12 @@ fetch("assets/data/products.json")
           <div class="category-label">${cat.name}</div>
         `;
 
-        card.addEventListener("click", () => {
+        card.onclick = () => {
           activeCategory = cat.id;
           updateFilterUI(cat.id);
           renderProducts();
-          productsGrid.scrollIntoView({ behavior: "smooth", block: "start" });
-        });
+          productsGrid.scrollIntoView({ behavior: "smooth" });
+        };
 
         categoryGrid.appendChild(card);
       });
@@ -78,7 +73,9 @@ fetch("assets/data/products.json")
     function renderFilters() {
       if (!filters) return;
 
-      filters.innerHTML = `<button class="filter active" data-cat="all">All</button>`;
+      filters.innerHTML = `
+        <button class="filter active" data-cat="all">All</button>
+      `;
 
       categories.forEach(cat => {
         const btn = document.createElement("button");
@@ -86,11 +83,11 @@ fetch("assets/data/products.json")
         btn.dataset.cat = cat.id;
         btn.textContent = cat.name;
 
-        btn.addEventListener("click", () => {
+        btn.onclick = () => {
           activeCategory = cat.id;
           updateFilterUI(cat.id);
           renderProducts();
-        });
+        };
 
         filters.appendChild(btn);
       });
@@ -98,40 +95,59 @@ fetch("assets/data/products.json")
 
     function updateFilterUI(catId) {
       if (!filters) return;
-
       filters.querySelectorAll(".filter").forEach(btn => {
         btn.classList.toggle("active", btn.dataset.cat === catId);
       });
     }
 
     /* =========================
-    PRODUCTS RENDER
+    PRODUCTS RENDER (FIXED)
     ========================= */
     function renderProducts() {
       productsGrid.innerHTML = "";
 
-      (data.products || [])
+      const products = (data.products || [])
         .filter(p => p.status === "live" || !p.status)
-        .filter(p => activeCategory === "all" || p.category === activeCategory)
-        .forEach(p => {
-          const categoryName =
-            categories.find(c => c.id === p.category)?.name || "";
+        .map(p => ({
+          ...p,
+          category: String(p.category || "").toLowerCase()
+        }))
+        .filter(p => activeCategory === "all" || p.category === activeCategory);
 
-          const hasImage =
-            Array.isArray(p.images) && p.images.length && p.images[0];
+      if (!products.length) {
+        productsGrid.innerHTML = `
+          <p class="muted" style="text-align:center;width:100%;">
+            No products available
+          </p>
+        `;
+        return;
+      }
 
-          const card = document.createElement("a");
-          card.href = `product.html?id=${p.id}`;
-          card.className = "card product-card parallax-card";
+      products.forEach(p => {
+        const categoryName =
+          categories.find(c => c.id === p.category)?.name || "";
 
-          card.innerHTML = `
-            ${hasImage ? `<img src="${p.images[0]}" alt="${p.name}">` : ""}
+        const image =
+          Array.isArray(p.images) && p.images[0]
+            ? p.images[0]
+            : "assets/images/product-default.jpg";
+
+        const card = document.createElement("a");
+        card.href = `product.html?id=${p.id}`;
+        card.className = "card product-card parallax-card";
+
+        card.innerHTML = `
+          <div class="product-image-wrap">
+            <img src="${image}" alt="${p.name}">
+          </div>
+          <div class="product-meta">
             <h3>${p.name}</h3>
             <p class="muted">${categoryName}</p>
-          `;
+          </div>
+        `;
 
-          productsGrid.appendChild(card);
-        });
+        productsGrid.appendChild(card);
+      });
     }
 
     /* =========================
@@ -144,4 +160,3 @@ fetch("assets/data/products.json")
   .catch(err => {
     console.error("Products load failed:", err);
   });
-  

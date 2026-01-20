@@ -1,66 +1,85 @@
-<!-- =========================
-FILE: about.html
-========================= -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="About RESSINIQ — philosophy, values, and long-term thinking."/>
   <title>About — RESSINIQ</title>
-  <link rel="stylesheet" href="assets/css/style.css" />
+  <meta name="description" content="RESSINIQ is built as a system — not a trend-driven brand."/>
+  <link rel="stylesheet" href="assets/css/style.css"/>
 </head>
 <body>
 
-<button id="themeToggle" aria-label="Toggle dark mode"><span></span></button>
+<button id="themeToggle"><span></span></button>
 
 <header class="nav">
   <div class="nav-inner">
     <a href="index.html" class="logo">RESSINIQ</a>
-    <nav>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
       <a href="about.html">About</a>
       <a href="products.html">Products</a>
       <a href="services.html">Services</a>
       <a href="founder.html">Founder</a>
-      <a href="contact.html" class="cta">Contact</a>
+      <a href="contact.html" class="pill">Contact</a>
     </nav>
+    <a href="cart.html" class="cart-link">🛒 <span id="cartCount" class="cart-count hidden">0</span></a>
   </div>
 </header>
 
-<main>
-  <section class="hero small">
-    <div class="hero-content">
-      <h1>About RESSINIQ</h1>
-      <p class="subtitle">Built slowly. Designed to last.</p>
-    </div>
+<main class="about-system">
+
+  <!-- SYSTEM INTRO -->
+  <section class="system-intro reveal">
+    <span class="system-label">SYSTEM OVERVIEW</span>
+    <h1>RESSINIQ is not built for speed.<br>It is built for continuity.</h1>
   </section>
 
-  <section>
-    <div class="container narrow">
-      <h2>Our Philosophy</h2>
+  <!-- FLOATING PANELS -->
+  <section class="system-panels">
+
+    <article class="system-panel depth-1 reveal">
+      <span class="panel-index">01</span>
+      <h2>Design Philosophy</h2>
       <p>
-        RESSINIQ exists to build things that remain sensible over time.  
-        We reject unnecessary complexity, short-term trends, and visual noise.
-        Every decision is filtered through longevity, clarity, and usefulness.
+        Every product and system is designed to remain logical even as
+        circumstances change. Nothing exists for decoration alone.
       </p>
-    </div>
+    </article>
+
+    <article class="system-panel depth-2 reveal">
+      <span class="panel-index">02</span>
+      <h2>Execution Standard</h2>
+      <p>
+        Whether physical craftsmanship or digital infrastructure,
+        the same discipline applies — reliability, clarity, and restraint.
+      </p>
+    </article>
+
+    <article class="system-panel depth-3 reveal">
+      <span class="panel-index">03</span>
+      <h2>Long-Term Thinking</h2>
+      <p>
+        RESSINIQ avoids short-term wins in favor of systems that compound
+        value over time.
+      </p>
+    </article>
+
   </section>
 
-  <section class="elevated">
-    <div class="container narrow">
-      <h2>Core Values</h2>
-      <ul class="values">
-        <li><strong>Discipline</strong> — systems before speed.</li>
-        <li><strong>Restraint</strong> — elegance through reduction.</li>
-        <li><strong>Integrity</strong> — consistency across mediums.</li>
-        <li><strong>Longevity</strong> — products designed to age well.</li>
-      </ul>
-    </div>
+  <!-- SIGNATURE -->
+  <section class="system-signature reveal">
+    <p>
+      This website and its systems were entirely designed and built by the
+      founder of RESSINIQ,
+      <strong>Kunal Rai</strong> — independently, end to end.
+    </p>
+    <span class="signature-line"></span>
   </section>
+
 </main>
 
 <footer class="footer">
-  <p>© 2026 RESSINIQ. All rights reserved.</p>
+  <p>© 2026 RESSINIQ</p>
 </footer>
 
 <script src="assets/js/main.js"></script>

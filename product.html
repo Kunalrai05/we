@@ -8,36 +8,61 @@
 </head>
 <body>
 
+<button id="themeToggle" aria-label="Toggle theme"><span></span></button>
+
 <header class="nav">
   <div class="nav-inner">
-    <a href="products.html" class="logo">RESSINIQ</a>
+
+    <!-- LOGO / HOME -->
+    <a href="index.html" class="logo">RESSINIQ</a>
+
+    <!-- NAV LINKS -->
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="products.html">Products</a>
+      <a href="services.html">Services</a>
+      <a href="founder.html">Founder</a>
+      <a href="contact.html" class="pill">Contact</a>
+    </nav>
+
+    <!-- CART -->
     <a href="cart.html" class="cart-link">
       🛒 <span id="cartCount" class="cart-count hidden">0</span>
     </a>
+
   </div>
 </header>
 
+
 <main class="product-page">
 
-  <section class="product-gallery">
-    <img id="mainImage" class="main-image">
-    <div id="thumbnails" class="thumbnail-row"></div>
-  </section>
+  <section class="product-layout">
 
-  <section class="product-info">
-    <h1 id="productName"></h1>
-    <p class="muted" id="productCategory"></p>
-    <p class="price" id="productPrice"></p>
-    <p id="productDescription"></p>
-
-    <div class="product-actions">
-      <button id="addToCartBtn" class="btn primary">Add to Cart</button>
-      <button id="askQueryBtn" class="btn ghost">Ask a Query</button>
+    <!-- GALLERY -->
+    <div class="product-gallery">
+      <img id="mainImage" class="main-image" alt="Product image">
+      <div id="thumbnails" class="thumbnail-row"></div>
     </div>
+
+    <!-- INFO -->
+    <div class="product-info">
+      <h1 id="productName"></h1>
+      <p class="muted" id="productCategory"></p>
+      <p class="price" id="productPrice"></p>
+      <p id="productDescription"></p>
+
+      <div class="product-actions">
+        <button id="addToCartBtn" class="btn primary">Add to Cart</button>
+        <button id="askQueryBtn" class="btn ghost">Ask a Query</button>
+      </div>
+    </div>
+
   </section>
 
 </main>
 
+<script src="assets/js/main.js"></script>
 <script src="assets/js/cart.js"></script>
 <script src="assets/js/product.js"></script>
 </body>

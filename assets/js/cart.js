@@ -1,10 +1,13 @@
 /* =========================
 CART SYSTEM + ENQUIRY ENGINE
+(NO ALERTS / PREMIUM UX)
 ========================= */
 
 const CART_KEY = "ressiniq-cart";
 
-/* BASIC CART */
+/* =========================
+BASIC CART
+========================= */
 function getCart() {
   return JSON.parse(localStorage.getItem(CART_KEY)) || [];
 }
@@ -15,9 +18,12 @@ function saveCart(cart) {
 
 function clearCart() {
   localStorage.removeItem(CART_KEY);
+  updateCartCount();
 }
 
-/* ADD / UPDATE */
+/* =========================
+ADD / UPDATE CART
+========================= */
 function addToCart(product) {
   const cart = getCart();
   const existing = cart.find(p => p.id === product.id);
@@ -38,7 +44,7 @@ function addToCart(product) {
 
   saveCart(cart);
   updateCartCount();
-  alert("Added to cart");
+  showToast("Added to cart");
 }
 
 function updateQty(id, delta) {
@@ -49,17 +55,18 @@ function updateQty(id, delta) {
   item.qty += delta;
   if (item.qty <= 0) {
     removeFromCart(id);
-    updateCartCount();
     return;
   }
 
   saveCart(cart);
+  updateCartCount();
 }
 
 function removeFromCart(id) {
   const cart = getCart().filter(p => p.id !== id);
-  updateCartCount();
   saveCart(cart);
+  updateCartCount();
+  showToast("Item removed");
 }
 
 /* =========================
@@ -83,37 +90,36 @@ function buildQueryMessage() {
 }
 
 /* =========================
-SEND ACTIONS
+SEND TO INSTAGRAM
 ========================= */
 function sendInstagramQuery() {
   const message = buildQueryMessage();
   if (!message) {
-    alert("Cart is empty");
+    showToast("Cart is empty");
     return;
   }
 
-  // Instagram does not support pre-filled DMs reliably
-  // So we copy message to clipboard and open profile
   navigator.clipboard.writeText(message).then(() => {
-    alert("Message copied.\nPaste it in Instagram DM.");
+    showToast("Message copied. Opening Instagram…");
     window.open("https://www.instagram.com/ressiniq/", "_blank");
   });
 }
 
+/* =========================
+SEND EMAIL
+========================= */
 function sendEmailQuery() {
   const message = buildQueryMessage();
   if (!message) {
-    alert("Cart is empty");
+    showToast("Cart is empty");
     return;
   }
 
   const body = encodeURIComponent(message);
   window.location.href =
     `mailto:ressiniq@gmail.com?subject=Product Enquiry – RESSINIQ&body=${body}`;
-
-  // Optional: clear cart after email intent
-  // clearCart();
 }
+
 /* =========================
 CART COUNT INDICATOR
 ========================= */

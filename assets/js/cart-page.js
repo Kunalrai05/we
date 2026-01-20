@@ -8,8 +8,7 @@ function renderCart() {
   cartItemsEl.innerHTML = "";
 
   if (!cart.length) {
-    cartItemsEl.innerHTML =
-      "<p class='muted'>Your cart is empty.</p>";
+    cartItemsEl.innerHTML = "<p class='muted'>Your cart is empty.</p>";
     cartSummary.classList.add("hidden");
     updateCartCount();
     return;
@@ -53,7 +52,7 @@ function removeItem(id) {
   renderCart();
 }
 
-sendInsta.onclick = () => sendInstagramQuery();
-sendEmail.onclick = () => sendEmailQuery();
+sendInsta.onclick = () => openCartQueryModal(buildQueryMessage());
+sendEmail.onclick = () => openCartQueryModal(buildQueryMessage());
 
 renderCart();

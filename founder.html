@@ -1,77 +1,86 @@
-<!-- =========================
-FILE: founder.html
-========================= -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Founder of RESSINIQ — Kunal Rai."/>
+  <meta charset="UTF-8">
   <title>Founder — RESSINIQ</title>
-  <link rel="stylesheet" href="assets/css/style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 
-<button id="themeToggle" aria-label="Toggle dark mode"><span></span></button>
+<button id="themeToggle"><span></span></button>
 
 <header class="nav">
   <div class="nav-inner">
+
+    <!-- LOGO / HOME -->
     <a href="index.html" class="logo">RESSINIQ</a>
-    <nav>
+
+    <!-- NAV LINKS -->
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
       <a href="about.html">About</a>
       <a href="products.html">Products</a>
       <a href="services.html">Services</a>
       <a href="founder.html">Founder</a>
-      <a href="contact.html" class="cta">Contact</a>
+      <a href="contact.html" class="pill">Contact</a>
     </nav>
+
+    <!-- CART -->
+    <a href="cart.html" class="cart-link">
+      🛒 <span id="cartCount" class="cart-count hidden">0</span>
+    </a>
+
   </div>
 </header>
 
-<main>
-  <section class="hero small">
-    <div class="hero-content">
-      <h1>Kunal Rai</h1>
-      <p class="subtitle">Founder & Designer</p>
+
+<main class="founder-page">
+
+  <section class="founder-layout">
+
+    <!-- CARD -->
+    <div class="founder-card">
+      <img src="assets/images/founder.jpg" alt="Kunal Rai">
+      <h2>Kunal Rai</h2>
+      <p class="muted">Founder, RESSINIQ</p>
+
+      <a
+        href="https://www.instagram.com/kunal_rai05/"
+        target="_blank"
+        class="btn ghost founder-insta"
+      >
+        @kunal_rai05
+      </a>
     </div>
+
+    <!-- STORY -->
+    <div class="founder-content">
+      <h3>Journey</h3>
+      <p>
+        RESSINIQ began with a simple principle: build things that continue
+        to make sense over time.
+      </p>
+      <p>
+        Starting the journey at 17, the focus was never speed or visibility —
+        but discipline, learning, and long-term clarity.
+      </p>
+      <p>
+        Rather than chasing rapid growth or short-lived trends, the company
+        is shaped around fundamentals: thoughtful design, reliable systems,
+        and products built with care.
+      </p>
+
+      <h3>Vision</h3>
+      <p>
+        The same mindset applies across digital systems and physical
+        craftsmanship — different mediums, same standards.
+      </p>
+    </div>
+
   </section>
 
-  <section class="founder-section">
-    <div class="container founder-grid">
-      <div class="founder-card">
-        <div class="founder-photo parallax-founder"></div>
-        <h3>Kunal Rai</h3>
-        <p class="muted">Founder, RESSINIQ</p>
-      </div>
-
-      <div class="founder-story">
-        <h2>Journey</h2>
-        <p>
-          RESSINIQ began with a simple principle: build things that continue
-          to make sense over time.
-        </p>
-        <p>
-          Starting the journey at 17, the focus was never speed or visibility —
-          but discipline, learning, and long-term clarity.
-        </p>
-        <p>
-          Rather than chasing rapid growth or short-lived trends,
-          the company is shaped around fundamentals: thoughtful design,
-          reliable systems, and products built with care.
-        </p>
-
-        <h2>Vision</h2>
-        <p>
-          The same mindset applies across digital systems and physical craftsmanship —
-          different mediums, same standards.
-        </p>
-      </div>
-    </div>
-  </section>
 </main>
-
-<footer class="footer">
-  <p>© 2026 RESSINIQ. All rights reserved.</p>
-</footer>
 
 <script src="assets/js/main.js"></script>
 </body>
